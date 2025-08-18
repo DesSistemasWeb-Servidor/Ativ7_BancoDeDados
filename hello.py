@@ -3,11 +3,11 @@ from flask import Flask
 app = Flask(__name__)
 @app.route('/')
 def hello_world():
-    return '<h1><b>Avaliação contínua: Aula 030</b></h1><ul><li><a href="https://giovanna1.pythonanywhere.com/">Home</a></li><li><a href="https://giovanna1.pythonanywhere.com/user/GiovannaKarolline/PT303304X/IFSP">Identificação</a></li><li><a href="https://giovanna1.pythonanywhere.com/contextorequisicao">Contexto da requisição</a></li></ul>'
+    return '<h1><b>Avaliação contínua: Aula 030</b></h1><ul><li><a href="https://giovanna1.pythonanywhere.com/">Home</a></li><li><a href="https://giovanna1.pythonanywhere.com/user/Giovanna Karolline Menezes Ribeiro/PT303304X/IFSP">Identificação</a></li><li><a href="https://giovanna1.pythonanywhere.com/contextorequisicao">Contexto da requisição</a></li></ul>'
 
-@app.route('/user/GiovannaKarolline/PT303304X/IFSP')
-def identificacao():
-    return '<h1>Avaliação contínua: Aula 030</h1><h2>Aluna: Giovanna Karolline Menezes Ribeiro</h2><h2>Prontuário: PT303304X</h2><h2>Instituição: IFSP</h2><p><a href="https://giovanna1.pythonanywhere.com/">Voltar</a></p>'
+@app.route('/user/<nome>/<prontuario>/<instituicao>')
+def identificacao(nome, prontuario, instituicao):
+    return f'<h1>Avaliação contínua: Aula 030</h1><h2>Aluno(a): {nome}</h2><h2>Prontuário: {prontuario}</h2><h2>Instituição: {instituicao}</h2><p><a href="https://giovanna1.pythonanywhere.com/">Voltar</a></p>'
 
 @app.route('/user/<name>')
 def user(name):
