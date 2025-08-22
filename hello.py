@@ -18,7 +18,8 @@ from flask import request
 def contextorequisicao():
     requisicao = request.headers.get('User-Agent')
     IP = request.remote_addr
-    return f'<h1>Avaliação contínua: Aula 030</h1><h2>Seu navegador é: {requisicao}</h2><h2>O IP do computador remoto é: {IP}</h2><h2>O host da aplicação é: https://giovanna1.pythonanywhere.com/</h2><p><a href="https://giovanna1.pythonanywhere.com/">Voltar</a></p>'
+    host = request.host
+    return f'<h1>Avaliação contínua: Aula 030</h1><h2>Seu navegador é: {requisicao}</h2><h2>O IP do computador remoto é: {IP}</h2><h2>O host da aplicação é: {host}</h2><p><a href="https://giovanna1.pythonanywhere.com/">Voltar</a></p>'
 
 @app.route('/codigostatusdiferente')
 def codigostatusdiferente():
