@@ -20,7 +20,7 @@ def identificacao(nome, prontuario, instituicao):
 def user(name):
     return render_template('user.html', nome=name)
 
-@app.route('/user')
+@app.route('/user/')
 def userr():
     return render_template('user.html')
 
