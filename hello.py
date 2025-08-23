@@ -18,11 +18,14 @@ def identificacao(nome, prontuario, instituicao):
 
 @app.route('/user/<name>')
 def user(name):
-    return render_template('user.html', nome=name)
+    if name:
+        return render_template('user.html', nome=name)
+    else:
+        return render_template('user.html')
 
-@app.route('/user/')
-def userr():
-    return render_template('user.html')
+#@app.route('/user/')
+#def userr():
+#    return render_template('user.html')
 
 from flask import request
 @app.route('/contextorequisicao')
