@@ -2,8 +2,12 @@
 {% block title %}User{% endblock %}
 {% block page_content %}
   {% if nome %}
+    <br>
     <h1>Hello, {{nome}}!</h1>
+    <hr>
   {% else %}
-    <h1>Hello, stranger!</h1>
+    <br>
+    <h1>Hello, Stranger!</h1>
+    <hr>
   {% endif %}
 {% endblock %}
