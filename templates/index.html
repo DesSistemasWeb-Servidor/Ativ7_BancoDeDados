@@ -8,7 +8,7 @@
 {% endblock %}
 {% block content %}
     {{ super() }}
-    <h1>Hello World!</h1>
+    {% block page_content %}<h1>Hello World!</h1>{% endblock %}
 {% endblock %}
 {% block scripts %}
     {{ super() }}
