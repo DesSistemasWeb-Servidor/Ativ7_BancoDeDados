@@ -21,7 +21,7 @@ def user(name):
     return render_template('user.html', nome=name)
 
 @app.route('/user')
-def user():
+def userr():
     return render_template('user.html')
 
 from flask import request
