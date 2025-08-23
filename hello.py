@@ -18,7 +18,7 @@ def identificacao(nome, prontuario, instituicao):
 
 @app.route('/user/<name>')
 def user(name):
-    return '<h1>Hello, {}!</h1>'.format(name)
+    return render_template('user.html', user=name)
 
 from flask import request
 @app.route('/contextorequisicao')
