@@ -29,7 +29,7 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 @app.route('/rotainexistente')
-    return render_template('404.html'), 404
+    return render_template('404.html')
 
 from flask import request
 @app.route('/contextorequisicao')
