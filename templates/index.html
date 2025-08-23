@@ -11,5 +11,7 @@
 {% endblock %}
 {% block scripts %}
     {{ super() }}
-    {% block page_content %}{% endblock %}
+    {% block page_content %}
+        {{ super() }}
+    {% endblock %}
 {% endblock %}
