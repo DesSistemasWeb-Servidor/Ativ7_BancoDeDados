@@ -1,9 +1,10 @@
 # A very simple Flask Hello World app for you to get started with...
-from flask import Flask
+from flask import Flask, render_template
+
 app = Flask(__name__)
 @app.route('/')
 def hello_world():
-    return '<h1><b>Avaliação contínua: Aula 030</b></h1><ul><li><a href="https://giovanna1.pythonanywhere.com/">Home</a></li><li><a href="https://giovanna1.pythonanywhere.com/user/Giovanna Karolline Menezes Ribeiro/PT303304X/IFSP">Identificação</a></li><li><a href="https://giovanna1.pythonanywhere.com/contextorequisicao">Contexto da requisição</a></li></ul>'
+    return render_template('index.html')
 
 @app.route('/user/<nome>/<prontuario>/<instituicao>')
 def identificacao(nome, prontuario, instituicao):
