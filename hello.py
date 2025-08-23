@@ -10,7 +10,7 @@ moment = Moment(app)
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html', title='Hello, World!', current_time = datetime.utcnow())
+    return render_template('index.html', current_time = datetime.utcnow())
 
 @app.route('/user/<nome>/<prontuario>/<instituicao>')
 def identificacao(nome, prontuario, instituicao):
