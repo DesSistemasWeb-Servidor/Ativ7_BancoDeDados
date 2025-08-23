@@ -21,7 +21,8 @@ def user(name):
     return render_template('user.html', nome=name)
 
 @app.route('/user')
-    user()
+def user():
+    return render_template('user.html')
 
 from flask import request
 @app.route('/contextorequisicao')
