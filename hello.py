@@ -12,10 +12,6 @@ moment = Moment(app)
 def hello_world():
     return render_template('index.html', current_time = datetime.utcnow())
 
-@app.route('/user/<nome>/<prontuario>/<instituicao>')
-def identificacao(nome, prontuario, instituicao):
-    return f'<h1>Avaliação contínua: Aula 030</h1><h2>Aluno(a): {nome}</h2><h2>Prontuário: {prontuario}</h2><h2>Instituição: {instituicao}</h2><p><a href="https://giovanna1.pythonanywhere.com/">Voltar</a></p>'
-
 @app.route('/user/<name>')
 def user(name):
     return render_template('user.html', nome=name)
@@ -27,6 +23,10 @@ def userr():
 @app.route('/rotainexistente')
 def rotainexistente():
     return render_template('404.html')
+
+@app.route('/user/<nome>/<prontuario>/<instituicao>')
+def identificacao(nome, prontuario, instituicao):
+    return f'<h1>Avaliação contínua: Aula 030</h1><h2>Aluno(a): {nome}</h2><h2>Prontuário: {prontuario}</h2><h2>Instituição: {instituicao}</h2><p><a href="https://giovanna1.pythonanywhere.com/">Voltar</a></p>'
 
 from flask import request
 @app.route('/contextorequisicao')
