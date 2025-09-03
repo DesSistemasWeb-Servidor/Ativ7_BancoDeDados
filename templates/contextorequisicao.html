@@ -1,7 +1,5 @@
-{% requisicao = request.headers.get('User-Agent') %}
-    {% IP = request.remote_addr %}
-    {% host = request.host %}
-  {% if nome, requisicao, IP, host %}
+{% extends 'base.html' %}
+{% if nome, requisicao, IP, host %}
     <br>
     <h1>Olá, {{nome}}!</h1>
     <hr>
