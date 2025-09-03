@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block page_content %}
-  {% if nome %}
+  {% if nome, prontuario, instituicao %}
+    <br>
+    <h1>Hello, {{nome}}!</h1>
+    <p>Prontuário: {{prontuario}}</p>
+    <p>Instituição: {{instituicao}}</p>
+    <hr>
+  {% elif nome %}
     <br>
     <h1>Hello, {{nome}}!</h1>
     <hr>
