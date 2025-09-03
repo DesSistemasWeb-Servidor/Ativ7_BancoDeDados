@@ -1,1 +1,10 @@
-
+{% requisicao = request.headers.get('User-Agent') %}
+    {% IP = request.remote_addr %}
+    {% host = request.host %}
+  {% if nome %}
+    <br>
+    <h1>Olá, {{nome}}!</h1>
+    <hr>
+    <h2>Seu navegador é: {requisicao}</h2>
+    <h2>O IP do computador remoto é: {IP}</h2>
+    <h2>O host da aplicação é: {host}</h2>
