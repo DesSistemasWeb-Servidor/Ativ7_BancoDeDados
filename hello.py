@@ -26,7 +26,7 @@ def rotainexistente():
 
 @app.route('/user/<nome>/<prontuario>/<instituicao>')
 def identificacao(nome, prontuario, instituicao):
-    return f'<h1>Avaliação contínua: Aula 030</h1><h2>Aluno(a): {nome}</h2><h2>Prontuário: {prontuario}</h2><h2>Instituição: {instituicao}</h2><p><a href="https://giovanna1.pythonanywhere.com/">Voltar</a></p>'
+    return render_template('user.html', nome=nome, prontuario=prontuario, instituicao=instituicao)
 
 from flask import request
 @app.route('/contextorequisicao')
