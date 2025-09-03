@@ -29,12 +29,12 @@ def identificacao(nome, prontuario, instituicao):
     return render_template('user.html', nome=nome, prontuario=prontuario, instituicao=instituicao)
 
 from flask import request
-@app.route('/contextorequisicao')
-def contextorequisicao():
+@app.route('/contextorequisicao/<nome>')
+def contextorequisicao(nome):
     requisicao = request.headers.get('User-Agent')
     IP = request.remote_addr
     host = request.host
-    return render_template('contextorequisicao.html', requisicao=requisicao, IP=IP, host=host)
+    return render_template('contextorequisicao.html', nome=nome, requisicao=requisicao, IP=IP, host=host)
 
 @app.route('/codigostatusdiferente')
 def codigostatusdiferente():
