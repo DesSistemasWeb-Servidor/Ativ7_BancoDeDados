@@ -3,6 +3,13 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from datetime import datetime
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
+
+class NameForm(FlaskForm):
+    name = StringField("What's your name?", validators = [DataRequired()])
+    submit = SubmitField('Submit')
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
