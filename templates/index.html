@@ -4,6 +4,14 @@
         <br>
         <h1>Olá, {{name}}!</h1>
         <hr>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.name.label }}
+            {{ form.name() }}
+            <br>
+            <br>
+            {{ form.submit() }}
+        </form>
     {% else %}
         <br>
         <h1>What's your name?</h1>
@@ -12,6 +20,7 @@
             {{ form.hidden_tag() }}
             {{ form.name.label }}
             {{ form.name() }}
+            <br>
             <br>
             {{ form.submit() }}
         </form>
