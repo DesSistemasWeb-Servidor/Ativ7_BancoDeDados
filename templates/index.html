@@ -6,15 +6,15 @@
         <h1>Hello, {{name}}!</h1>
         <hr>
         <form method="POST" class="form" role="form">
-            <div class="form-control">
                 {{ form.hidden_tag() }}
                 {{ form.name.label }}
                 <br>
+            <div class="form-control">
                 {{ form.name() }}
+            </div>
                 <br>
                 <br>
                 {{ form.submit() }}
-            </div>
         </form>
     {% else %}
         <br>
