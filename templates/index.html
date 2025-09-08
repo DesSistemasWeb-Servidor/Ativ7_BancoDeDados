@@ -1,7 +1,19 @@
 {% extends "base.html" %}
 {% block page_content %}
-    <br>
-    <h1>Dados da última atualização:</h1>
-    <hr>
+    {% if name %}
+        <br>
+        <h1>Olá, {{name}}!</h1>
+        <hr>
+    {% else %}
+        <br>
+        <h1>What's your name?</h1>
+        <hr>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.name.label }}
+            {{ form.name() }}
+            <br>
+            {{ form.submit() }}
+        </form>
     
 {% endblock %}
