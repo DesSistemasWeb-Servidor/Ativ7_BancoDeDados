@@ -20,7 +20,6 @@ class NameForm(FlaskForm):
 
 @app.route('/', methods=['GET','POST'])
 def index():
-    name = None
     form = NameForm()
     if form.validate_on_submit():
         old_name = session.get('name')
