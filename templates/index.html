@@ -6,8 +6,8 @@
         <h1>Hello, {{name}}!</h1>
         <hr>
         <form method="POST" class="form" role="form">
+            {{ form.hidden_tag() }}
             <div class="form-group">
-                {{ form.hidden_tag() }}
                 {{ form.name.label }}
                 <br>
                 <div class="form-control">
