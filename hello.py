@@ -2,6 +2,8 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
+from flask import request
+from flask import make_response
 from flask import redirect, url_for, flash
 from datetime import datetime
 from flask_wtf import FlaskForm
@@ -47,7 +49,6 @@ def rotainexistente():
 def identificacao(nome, prontuario, instituicao):
     return render_template('user.html', nome=nome, prontuario=prontuario, instituicao=instituicao)
 
-from flask import request
 @app.route('/contextorequisicao/<nome>')
 def contextorequisicao(nome):
     requisicao = request.headers.get('User-Agent')
@@ -60,7 +61,6 @@ def codigostatusdiferente():
     codigo = request.args['codigo']
     return f'<p>{codigo}</p>'
 
-from flask import make_response
 @app.route('/objetoresposta')
 def objetoresposta():
     response = make_response('<h1>This document carries a cookie!</h1>')
