@@ -1,31 +1,15 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block page_content %}
     {% if name %}
         <br>
         <h1>Hello, {{name}}!</h1>
         <hr>
-        <form method="POST" class="form" role="form">
-            {{ form.hidden_tag() }}
-            <div class="form-group">
-                {{ form.name.label }}
-                <br>
-                {{ form.name() }}
-                <br>
-                {{ form.submit() }}
-            </div>
-        </form>
     {% else %}
         <br>
         <h1>Hello, Stranger!</h1>
         <hr>
-        <form method="POST" class="form" role="form">
-            {{ form.hidden_tag() }}
-            {{ form.name.label }}
-            {{ form.name() }}
-            <br>
-            <br>
-            {{ form.submit() }}
-        </form>
     {% endif %}
+{{ wtf.quick_form(form) }}
 {% endblock %}
