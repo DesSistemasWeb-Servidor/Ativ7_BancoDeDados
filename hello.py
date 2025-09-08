@@ -2,6 +2,7 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
+from flask import redirect
 from datetime import datetime
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
@@ -67,7 +68,6 @@ def objetoresposta():
     response.set_cookie('answer','42')
     return response
 
-from flask import redirect
 @app.route('/redirecionamento')
 def redirecionamento():
     return redirect('https://ptb.ifsp.edu.br/')
