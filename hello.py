@@ -27,11 +27,9 @@ def index():
         old_name = session.get('name')
         if old_name is not None and old_name != form.name.data:
             flash('Looks like you have changed your name!')
-        endif
         session['name'] = form.name.data
         return redirect(url_for('index'))
-    endif
-    return render_template('index.html', name = session.get('name'))
+    return render_template('index.html', form = form, name = session.get('name'))
 
 @app.route('/user/<name>')
 def user(name):
