@@ -5,15 +5,15 @@
 <div class="page-header">
     {% if nome and sobrenome and instituicao and disciplina and ip and host %}
         <h1>Olá, {{nome}} {{sobrenome}}!</h1>
-        <h2>A sua Insituição de ensino é {{instituicao}}</h2>
-        <h2>Está cursando a disciplina de {{disciplina}}</h2>
+        <h3>A sua Insituição de ensino é {{instituicao}}</h3>
+        <h3>Está cursando a disciplina de {{disciplina}}</h3>
         <br>
         <h4>O IP do computador remoto é: {{ip}}</h4>
         <h4>O host da aplicação é: {{host}}</h4>
     {% else %}
-        <h1>Hello, Stranger!</h1>
-        <h2>A sua Insituição de ensino é None </h2>
-        <h2>Está cursando a disciplina de </h2>
+        <h1>Olá, estranho!</h1>
+        <h3>A sua Insituição de ensino é None </h3>
+        <h3>Está cursando a disciplina de </h3>
         <br>
         <h4>O IP do computador remoto é: None</h4>
         <h4>O host da aplicação é: None</h4>
