@@ -39,7 +39,6 @@
         </div>
     {% endfor %}
     {% block page_content %}{% endblock %}
-    momento = datetime.utcnow()
     <br>
     <p>The local date and time is {{ moment(momento).format('LLL') }}</p>
     <p>That was {{ moment(momento).fromNow(refresh=True) }}</p>
