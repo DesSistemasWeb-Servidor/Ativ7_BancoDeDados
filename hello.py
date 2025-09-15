@@ -51,6 +51,10 @@ def login():
         session['usuario'] = form.usuario.data
     return render_template('login.html', form = form, momento = datetime.utcnow())
 
+@app.route('/loginResponse')
+def loginResponse():
+    return render_template('loginResponse.html', usuario = session['usuario'], momento = datetime.utcnow())
+
 @app.route('/user/<name>')
 def user(name):
     return render_template('user.html', nome=name)
