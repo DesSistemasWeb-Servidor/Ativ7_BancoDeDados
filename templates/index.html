@@ -3,11 +3,23 @@
 
 {% block page_content %}
 <div class="page-header">
-    {% if name %}
-        <h1>Hello, {{name}}!</h1>
+    {% if nome, sobrenome, instituicao, disciplina, ip, host %}
+        <h1>Olá {{nome}} {{sobrenome}}!</h1>
+        <h2>A sua Insituição de ensino é {{instituicao}}</h2>
+        <h2>Está cursando a disciplina de {{disciplina}}</h2>
+        <br>
+        <h4>O IP do computador remoto é: {{ip}}</h4>
+        <h4>O host da aplicação é: {{host}}</h4>
     {% else %}
         <h1>Hello, Stranger!</h1>
+        <h2>A sua Insituição de ensino é {{instituicao}}</h2>
+        <h2>Está cursando a disciplina de {{disciplina}}</h2>
+        <br>
+        <h4>O IP do computador remoto é: {{ip}}</h4>
+        <h4>O host da aplicação é: {{host}}</h4>
     {% endif %}
 </div>
 {{ wtf.quick_form(form) }}
+<p>The local date and time is {{ moment(momento).format('LLL') }}</p>
+<p>That was {{moment(momento).fromNow(refresh=True)</p>
 {% endblock %}
