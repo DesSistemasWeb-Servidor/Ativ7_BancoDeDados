@@ -39,6 +39,9 @@
         </div>
     {% endfor %}
     {% block page_content %}{% endblock %}
+    <br>
+    <p>The local date and time is {{ moment(momento).format('LLL') }}</p>
+    <p>That was {{ moment(momento).fromNow(refresh=True) }}</p>
 </div>
 {% endblock %}
 
