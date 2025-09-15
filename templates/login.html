@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% implements "flask-wtf" as wtf %}
+{% import "bootstrap/flask-wtf.html" as wtf %}
 {% block page_content %}
   {{ wtf.signin_form(form) }}
 {% endblock %}
