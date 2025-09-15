@@ -26,6 +26,8 @@ class NameForm(FlaskForm):
 @app.route('/', methods=['GET','POST'])
 def index():
     form = NameForm()
+    ip = request.remote_addr
+    host = request.host
     if form.validate_on_submit():
         old_name = session.get('name')
         if old_name is not None and old_name != form.name.data:
@@ -35,7 +37,7 @@ def index():
         session['instituicao'] = form.instituicao.data
         session['disciplina'] = form.disciplina.data
         return redirect(url_for('index'))
-    return render_template('index.html', form = form, nome = session.get('name'), sobrenome = session.get('sobrenome'), instituicao = session.get('instituicao'), disciplina = session.get('disciplina'))
+    return render_template('index.html', form = form, nome = session.get('name'), sobrenome = session.get('sobrenome'), instituicao = session.get('instituicao'), disciplina = session.get('disciplina'), ip = ip, host = host, momento = datetime.utcnow())
 
 @app.route('/user/<name>')
 def user(name):
