@@ -3,7 +3,7 @@
 
 {% block page_content %}
 <div class="page-header">
-    {% if nome, sobrenome, instituicao, disciplina, ip, host %}
+    {% if nome and sobrenome and instituicao and disciplina and ip and host %}
         <h1>Olá {{nome}} {{sobrenome}}!</h1>
         <h2>A sua Insituição de ensino é {{instituicao}}</h2>
         <h2>Está cursando a disciplina de {{disciplina}}</h2>
