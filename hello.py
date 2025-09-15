@@ -7,7 +7,7 @@ from flask import make_response
 from flask import redirect, url_for, flash, session
 from datetime import datetime
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
@@ -17,7 +17,10 @@ moment = Moment(app)
 app.config['SECRET_KEY'] = "Chave forte"
 
 class NameForm(FlaskForm):
-    name = StringField("What's your name?", validators = [DataRequired()])
+    name = StringField("Informe o seu nome", validators = [DataRequired()])
+    sobrenome = StringField("Informe o seu sobrenome:", validators = [DataRequired()])
+    instituicao = StringField("Informe a sua Insituição de ensino:", validators = [DataRequired()])
+    disciplina = SelectField("Informe a sua disciplina:", choices = [('dswa5', 'DSWA5'), ('dwba4', 'DWBA4'), ('gpj', 'Gestão de projetos')], validators = [DataRequired()])
     submit = SubmitField('Submit')
 
 @app.route('/', methods=['GET','POST'])
@@ -28,8 +31,11 @@ def index():
         if old_name is not None and old_name != form.name.data:
             flash('Looks like you have changed your name!')
         session['name'] = form.name.data
+        session['sobrenome'] = form.sobrenome.data
+        session['instituicao'] = form.instituicao.data
+        session['disciplina'] = form.disciplina.data
         return redirect(url_for('index'))
-    return render_template('index.html', form = form, name = session.get('name'))
+    return render_template('index.html', form = form, nome = session.get('name'), sobrenome = session.get('sobrenome'), instituicao = session.get('instituicao'), disciplina = session.get('disciplina'))
 
 @app.route('/user/<name>')
 def user(name):
