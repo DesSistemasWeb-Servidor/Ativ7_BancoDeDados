@@ -53,7 +53,7 @@ def login():
 
 @app.route('/loginResponse')
 def loginResponse():
-    return render_template('loginResponse.html', usuario = session['usuario'], momento = datetime.utcnow())
+    return render_template('loginResponse.html', usuario = session.get('usuario'), momento = datetime.utcnow())
 
 @app.route('/user/<name>')
 def user(name):
