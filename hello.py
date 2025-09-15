@@ -49,6 +49,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         session['usuario'] = form.usuario.data
+        return redirect(url_for('loginResponse'))
     return render_template('login.html', form = form, momento = datetime.utcnow())
 
 @app.route('/loginResponse')
