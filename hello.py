@@ -7,7 +7,7 @@ from flask import make_response
 from flask import redirect, url_for, flash, session
 from datetime import datetime
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField
+from wtforms import StringField, SubmitField, SelectField, PasswordField
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
@@ -22,6 +22,11 @@ class NameForm(FlaskForm):
     instituicao = StringField("Informe a sua Insituição de ensino:", validators = [DataRequired()])
     disciplina = SelectField("Informe a sua disciplina:", choices = [('dswa5', 'DSWA5'), ('dwba4', 'DWBA4'), ('gpj', 'Gestão de projetos')], validators = [DataRequired()])
     submit = SubmitField('Submit')
+
+class LoginForm(FlaskForm):
+    usuario = StringField('Usuário ou e-mail', validators = [DataRequired()])
+    senha = PasswordField('Informe a sua senha', validators = [DataRequired()])
+    submit = SubmitField('Enviar')
 
 @app.route('/', methods=['GET','POST'])
 def index():
@@ -38,6 +43,13 @@ def index():
         session['disciplina'] = form.disciplina.data
         return redirect(url_for('index'))
     return render_template('index.html', form = form, nome = session.get('name'), sobrenome = session.get('sobrenome'), instituicao = session.get('instituicao'), disciplina = session.get('disciplina'), ip = ip, host = host, momento = datetime.utcnow())
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        session['usuario'] = form.usuario.data
+    return render_template('login.html', form = form)
 
 @app.route('/user/<name>')
 def user(name):
