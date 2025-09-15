@@ -42,14 +42,14 @@ def index():
         session['instituicao'] = form.instituicao.data
         session['disciplina'] = form.disciplina.data
         return redirect(url_for('index'))
-    return render_template('index.html', form = form, nome = session.get('name'), sobrenome = session.get('sobrenome'), instituicao = session.get('instituicao'), disciplina = session.get('disciplina'), ip = ip, host = host)
+    return render_template('index.html', form = form, nome = session.get('name'), sobrenome = session.get('sobrenome'), instituicao = session.get('instituicao'), disciplina = session.get('disciplina'), ip = ip, host = host, momento = datetime.utcnow())
 
 @app.route('/login', methods=['GET','POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
         session['usuario'] = form.usuario.data
-    return render_template('login.html', form = form)
+    return render_template('login.html', form = form, momento = datetime.utcnow())
 
 @app.route('/user/<name>')
 def user(name):
