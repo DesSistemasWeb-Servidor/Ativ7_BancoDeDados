@@ -1,15 +1,30 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+<style>
+    .form-signin {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+    }
+    .form-signin .form-signin-heading {
+        margin-bottom: 10px;
+    }
+    .form-signin input {
+        margin-bottom: 10px;
+    }
+</style>
+{% endblock %}
 {% block page_content %}
-<div class="row justify-content-center my-5">
-              <form action='/login' method='post' class="form-signin">
-                {{form.hidden_tag()}}
-                <h2>Login</h2>
-                {{form.usuario()}}
-                <br>
-                {{form.senha()}}
-                <br>
-                {{form.submit(class="btn btn-primary")}}
-              </form>
+<div class="container">
+    <form action='/login' method='post' class="form-signin">
+        {{ form.hidden_tag() }}
+        <h2 class="form-signin-heading">Login:</h2>
+        {{ form.usuario(class="input-block-level") }}
+        {{ form.senha(class="input-block-level") }}
+        {{ form.submit(class="btn btn-large btn-primary") }}
+    </form>
 </div>
 {% endblock %}
