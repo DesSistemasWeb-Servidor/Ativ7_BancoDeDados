@@ -9,7 +9,7 @@
         padding: 15px;
         margin: 0 auto;
     }
-    .container{
+    .borda{
         border: 1px;
         border-radius: 10px;
         border-style: groove;
@@ -19,7 +19,7 @@
 
 {% block page_content %}
     <form action='/login' method='post' class="form-signin">
-        <div class="container">
+        <div class="borda">
             {{ form.hidden_tag() }}
             <h2>Login:</h2>
             {{ form.usuario(class="input-block-level") }}
