@@ -5,17 +5,19 @@
     <div class="col-md-6 col-lg-5">
         <div class="card">
             <div class="card-body p-4">
-              <form action='/login' method='post' class="form-signin">
-                {{form.hidden_tag()}}
-                <h2>Login</h2>
-                {{form.usuario()}}
-                <br>
-                {{form.senha()}}
-                <br>
-                {{form.submit(class="btn btn-primary")}}
-              </form>
+                <form action='/login' method='post'>
+                    {{ form.hidden_tag() }}
+                    <h3 class="mb-4">Login</h3>
+                    <div class="form-group">
+                        {{ form.usuario(class="form-control", placeholder="Usuário ou e-mail") }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.senha(class="form-control", placeholder="Sua senha") }}
+                    </div>
+                    {{ form.submit(class="btn btn-primary mt-3") }}
+                </form>
             </div>
         </div>
-     </div>
+    </div>
 </div>
 {% endblock %}
