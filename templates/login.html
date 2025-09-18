@@ -5,10 +5,11 @@
   <div class="container">  
     <form action='/login' method='post' class="form-signin">
       {{form.hidden_tag()}}
-        <h2>Login</h2>
-        {{form.usuario()}}
-        <br>
-        {{form.senha()}}
+      <h2>Login</h2>
+      {{form.usuario()}}
+      <br>
+      {{form.senha()}}
+      <br>
       {{form.submit(class="btn btn-primary")}}
     </form>
   </div>
