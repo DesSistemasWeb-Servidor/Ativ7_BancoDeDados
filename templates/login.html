@@ -3,9 +3,11 @@
 {% block page_content %}
   <form>
     {{form.hidden_tag()}}
+    <div class='form-group'>
     <h1>Login</h1>
-    {{render_field(form.usuario(), form_label_hidden = True)}}
-    {{render_field(form.senha(class="form-control"))}}
+    {{form.usuario()}}
+    {{form.senha(class="form-control")}}
+    </div>
     {{form.submit(class="btn btn-primary")}}
   </form>
 {% endblock %}
