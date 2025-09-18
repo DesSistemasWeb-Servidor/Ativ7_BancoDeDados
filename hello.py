@@ -24,8 +24,8 @@ class NameForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class LoginForm(FlaskForm):
-    usuario = StringField('Usuário ou e-mail', validators = [DataRequired()])
-    senha = PasswordField('Informe a sua senha', validators = [DataRequired()])
+    usuario = StringField('Usuário ou e-mail', validators = [DataRequired()], render_kw={"placeholder": "Usuário ou e-mail"})
+    senha = PasswordField('Informe a sua senha', validators = [DataRequired()], render_kw={"placeholder": "Informe a sua senha"})
     submit = SubmitField('Enviar')
 
 @app.route('/', methods=['GET','POST'])
