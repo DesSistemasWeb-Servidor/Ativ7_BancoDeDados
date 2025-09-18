@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% block page_content %}
+<div class="card border-light shadow-sm">  
   <form>
     {{form.hidden_tag()}}
     <div class='form-group'>
       <h1>Login</h1>
       {{form.usuario()}}
-      {{form.senha(class="mb-3")}}
+      {{form.senha()}}
     </div>
     {{form.submit(class="btn btn-primary")}}
   </form>
+</div>
 {% endblock %}
