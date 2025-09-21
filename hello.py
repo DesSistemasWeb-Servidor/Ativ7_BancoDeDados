@@ -35,18 +35,13 @@ class LoginForm(FlaskForm):
 @app.route('/', methods=['GET','POST'])
 def index():
     form = NameForm()
-    ip = request.remote_addr
-    host = request.host
     if form.validate_on_submit():
         old_name = session.get('name')
         if old_name is not None and old_name != form.name.data:
             flash('Looks like you have changed your name!')
         session['name'] = form.name.data
-        session['sobrenome'] = form.sobrenome.data
-        session['instituicao'] = form.instituicao.data
-        session['disciplina'] = form.disciplina.data
         return redirect(url_for('index'))
-    return render_template('index.html', form = form, nome = session.get('name'), sobrenome = session.get('sobrenome'), instituicao = session.get('instituicao'), disciplina = session.get('disciplina'), ip = ip, host = host, momento = datetime.utcnow())
+    return render_template('index.html', form = form, nome = session.get('name'), momento = datetime.utcnow())
 
 @app.route('/login', methods=['GET','POST'])
 def login():
