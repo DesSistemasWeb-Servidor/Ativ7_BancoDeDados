@@ -33,7 +33,7 @@
                 {% for i in usuarios %}
                     <tr>
                         <td>{{ i.username }}</td>
-                        <td>{{ i.user_role }}</td>
+                        <td>{{ Role.get(i.role_id) }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
