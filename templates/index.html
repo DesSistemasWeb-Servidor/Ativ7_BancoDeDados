@@ -23,40 +23,14 @@
     </div>
     {{ wtf.quick_form(form) }}
     <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
-    <h2>Relação de usuários cadastrados</h2>
+    <table class='table'>
+        <th>Nome do usuário</th>
+        <th>Função</th>
+        {% for i in usuarios %}
+            <tr>
+                <td>{{ i.username }}</td>
+                <td>{{ i.user_role }}</td>
+            </tr>
+    </table>
 </div>
 {% endblock %}
