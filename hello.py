@@ -11,6 +11,8 @@ from wtforms import StringField, SubmitField, SelectField, PasswordField
 from wtforms.validators import DataRequired
 import os
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
