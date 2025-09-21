@@ -51,6 +51,10 @@ class LoginForm(FlaskForm):
     senha = PasswordField('Informe a sua senha', validators = [DataRequired()], render_kw={"placeholder": "Informe a sua senha"})
     submit = SubmitField('Enviar')
 
+@app.shell_context_processor
+def make_shell_context():
+    return dict(db=db, User=User, Role=Role)
+
 @app.route('/', methods=['GET','POST'])
 def index():
     form = NameForm()
@@ -101,23 +105,3 @@ def contextorequisicao(nome):
     IP = request.remote_addr
     host = request.host
     return render_template('contextorequisicao.html', nome=nome, requisicao=requisicao, IP=IP, host=host)
-
-@app.route('/codigostatusdiferente')
-def codigostatusdiferente():
-    codigo = request.args['codigo']
-    return f'<p>{codigo}</p>'
-
-@app.route('/objetoresposta')
-def objetoresposta():
-    response = make_response('<h1>This document carries a cookie!</h1>')
-    response.set_cookie('answer','42')
-    return response
-
-@app.route('/redirecionamento')
-def redirecionamento():
-    return redirect('https://ptb.ifsp.edu.br/')
-
-from flask import abort
-@app.route('/abortar')
-def abortar():
-    abort(404)
