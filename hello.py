@@ -9,6 +9,9 @@ from datetime import datetime
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, PasswordField
 from wtforms.validators import DataRequired
+import os
+from flask_sqlalchemy import SQLAlchemy
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
@@ -16,11 +19,12 @@ moment = Moment(app)
 
 app.config['SECRET_KEY'] = "Chave forte"
 
+app.config['SQLALCHEMY_DATABASE_URI'] = \'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = false
+db = SQLAlchemy(app)
+
 class NameForm(FlaskForm):
     name = StringField("Informe o seu nome", validators = [DataRequired()])
-    sobrenome = StringField("Informe o seu sobrenome:", validators = [DataRequired()])
-    instituicao = StringField("Informe a sua Insituição de ensino:", validators = [DataRequired()])
-    disciplina = SelectField("Informe a sua disciplina:", choices = [('DSWA5', 'DSWA5'), ('DWBA4', 'DWBA4'), ('Gestão de Projetos', 'Gestão de projetos')], validators = [DataRequired()])
     submit = SubmitField('Submit')
 
 class LoginForm(FlaskForm):
