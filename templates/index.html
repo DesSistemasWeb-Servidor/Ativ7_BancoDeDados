@@ -25,14 +25,18 @@
     <h2>Relação de usuários cadastrados</h2>
     {% if usuarios %}
         <table class='table'>
-            <th>Nome do usuário</th>
-            <th>Função</th>
-            {% for i in usuarios %}
-                <tr>
-                    <td>{{ i.username }}</td>
-                    <td>{{ i.user_role }}</td>
-                </tr>
-            {% endfor %}
+            <thead>
+                <th>Nome do usuário</th>
+                <th>Função</th>
+            </thead>
+            <tbody>
+                {% for i in usuarios %}
+                    <tr>
+                        <td>{{ i.username }}</td>
+                        <td>{{ i.user_role }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
     {% endif %}
 </div>
