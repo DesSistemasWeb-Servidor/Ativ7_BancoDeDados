@@ -70,9 +70,9 @@ def index():
         else:
             session['known'] = True
         session['name'] = form.name.data
-        usuarios = User.query.all()
+        session['users'] = User.query.all()
         return redirect(url_for('index'))
-    return render_template('index.html', form=form, name=session.get('name'), known=session.get('known', False), usuarios = usuarios)
+    return render_template('index.html', form=form, name=session.get('name'), known=session.get('known', False), usuarios = session.get('users'))
 
 @app.route('/login', methods=['GET','POST'])
 def login():
