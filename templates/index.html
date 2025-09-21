@@ -1,17 +1,8 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-<style>
-    .scrollable-container {
-      max-height: 200px;
-      overflow-y: auto;
-      border: 1px solid #ddd;
-      padding: 10px;
-    }
-</style>
-
 {% block page_content %}
-<div class="scrollable-container">
+<div class="scroll">
     <div class="page-header">
         {% if nome %}
             <h1>Olá, {{nome}}!</h1>
