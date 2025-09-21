@@ -2,20 +2,23 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block page_content %}
-<div class="page-header">
-    {% if nome %}
-        <h1>Olá, {{nome}}!</h1>
-        <p></p>
-    {% else %}
-        <h1>Olá, Estranho!</h1>
-    {% endif %}
-    
-    {% if known %}
-        <p>Feliz em vê-lo novamente!</p>
-    {% else %}
-        <p>Prazer em conhecê-lo!</p>
-    {% endif %}
+<div data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+    <div class="page-header">
+        
+        {% if nome %}
+            <h1>Olá, {{nome}}!</h1>
+            <p></p>
+        {% else %}
+            <h1>Olá, Estranho!</h1>
+        {% endif %}
+        
+        {% if known %}
+            <p>Feliz em vê-lo novamente!</p>
+        {% else %}
+            <p>Prazer em conhecê-lo!</p>
+        {% endif %}
+    </div>
+    {{ wtf.quick_form(form) }}
+    <h2>Relação de usuários cadastrados</h2>
 </div>
-{{ wtf.quick_form(form) }}
-<h2>Relação de usuários cadastrados</h2>
 {% endblock %}
