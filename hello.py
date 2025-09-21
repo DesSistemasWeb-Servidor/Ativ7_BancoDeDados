@@ -73,11 +73,11 @@ def login():
     if form.validate_on_submit():
         session['usuario'] = form.usuario.data
         return redirect(url_for('loginResponse'))
-    return render_template('login.html', form = form, momento = datetime.utcnow())
+    return render_template('login.html', form = form)
 
 @app.route('/loginResponse')
 def loginResponse():
-    return render_template('loginResponse.html', usuario = session.get('usuario'), momento = datetime.utcnow())
+    return render_template('loginResponse.html', usuario = session.get('usuario'))
 
 @app.route('/user/<name>')
 def user(name):
