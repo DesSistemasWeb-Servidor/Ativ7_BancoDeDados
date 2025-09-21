@@ -2,13 +2,13 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 <style>
-    .scrollable-container {
+    .scroll {
       overflow-y: auto;
     }
 </style>
 
 {% block page_content %}
-<div class="scrollable-container">
+<div class="scroll">
     <div class="page-header">
         {% if nome %}
             <h1>Olá, {{nome}}!</h1>
